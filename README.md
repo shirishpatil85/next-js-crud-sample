@@ -33,7 +33,7 @@ pages/api --> Middleware req,res
 
 createWrapper(makeStore)  --> Use next-redux-wrapper to wrap the store
 
-hydrate from next-redux-wrapper--> add to reducer file , intial action with no specific action
+hydrate from next-redux-wrapper--> add to reducer file , intial action with no specific client action
 
 <br/>
 
@@ -89,6 +89,10 @@ index.js to export all modules
 Saga - add to store.js    
 
     applyMiddleware(sagaMiddleware)
+
+    sagaMiddleware.run(rootSaga)
+
+    Can call any saga from redux store
 
     sagaMiddleware.run(helloSaga)
 
