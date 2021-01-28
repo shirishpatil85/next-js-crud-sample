@@ -15,10 +15,12 @@ export function SearchPage() {
 		var temp =[];
 		console.log(" searchterm", searchTerm);
 		console.log(" state.employeeList", state.employeeList);
-		for(var i =0; i < state.employeeList.length; i++) {
-			if(state.employeeList[i].name.toUpperCase() === searchTerm.toUpperCase()) {
-				temp.push(state.employeeList[i].name); 
-			}         
+		if(searchTerm.length >0 ) {
+			for(var i =0; i < state.employeeList.length; i++) {
+				if(state.employeeList[i].name.toUpperCase() === searchTerm.toUpperCase()) {
+					temp.push(state.employeeList[i].name); 
+				}         
+			}
 		}
 		console.log(" temp", temp);
 		setSearchResults(temp);	
