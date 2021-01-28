@@ -29,7 +29,13 @@ Model --> mongoose.schema - mongoose.model
 ## 3. Next JS Code 
 -------------------
 
-pages/api --> Middleware req,res
+pages/api --> Middleware req,res  
+
+         Dynamic routes 
+                /  maps to index.js
+                /searchPage to searchPage.js
+        
+        Index.js has reference to components, these pre-rendered and convereted to static HTML
 
 createWrapper(makeStore)  --> Use next-redux-wrapper to wrap the store
 

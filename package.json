@@ -6,7 +6,7 @@
 	"author": "",
 	"license": "MIT",
 	"scripts": {
-		"dev": "next dev",
+		"dev": "cross-env MONGO_URI=mongodb://localhost/mydb next dev",
 		"build": "next build",
 		"start": "cross-env MONGO_URI=mongodb://localhost/mydb next start",
 		"lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
