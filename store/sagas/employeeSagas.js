@@ -1,7 +1,7 @@
 import { all, put, takeLatest } from "redux-saga/effects";
 import * as t from "../types";
 
-function* fetchEmployees() {
+function* fetchEmployeesSaga() {
 	try {
 		const response = yield fetch("/api/employees");
 
@@ -19,11 +19,11 @@ function* fetchEmployees() {
 	}
 }
 
-function* watchFetchEmployees() {
-	yield takeLatest(t.EMPLOYEE_FETCH_REQUESTED, fetchEmployees);
+function* watchFetchEmployeesSaga() {
+	yield takeLatest(t.EMPLOYEE_FETCH_REQUESTED, fetchEmployeesSaga);
 }
 
-function* addEmployee(action) {
+function* addEmployeeSaga(action) {
 	try {
 		const response = yield fetch("/api/employees", {
 			method: "POST",
@@ -47,11 +47,11 @@ function* addEmployee(action) {
 	}
 }
 
-function* watchAddEmployee() {
-	yield takeLatest(t.EMPLOYEE_ADD_REQUESTED, addEmployee);
+function* watchAddEmployeeSaga() {
+	yield takeLatest(t.EMPLOYEE_ADD_REQUESTED, addEmployeeSaga);
 }
 
-function* deleteEmployee(action) {
+function* deleteEmployeeSaga(action) {
 	try {
 		const response = yield fetch("/api/employees/" + action.payload, {
 			method: "DELETE",
@@ -71,11 +71,11 @@ function* deleteEmployee(action) {
 	}
 }
 
-function* watchRemoveEmployee() {
-	yield takeLatest(t.EMPLOYEE_DELETE_REQUESTED, deleteEmployee);
+function* watchRemoveEmployeeSaga() {
+	yield takeLatest(t.EMPLOYEE_DELETE_REQUESTED, deleteEmployeeSaga);
 }
 
-function* updateEmployee(action) {
+function* updateEmployeeSaga(action) {
 	try {
 		const response = yield fetch("/api/employees/" + action.payload._id, {
 			method: "PUT",
@@ -99,15 +99,15 @@ function* updateEmployee(action) {
 	}
 }
 
-function* watchUpdateEmployee() {
-	yield takeLatest(t.EMPLOYEE_UPDATE_REQUESTED, updateEmployee);
+function* watchUpdateEmployeeSaga() {
+	yield takeLatest(t.EMPLOYEE_UPDATE_REQUESTED, updateEmployeeSaga);
 }
 
 export default function* rootSaga() {
 	yield all([
-		watchFetchEmployees(),
-		watchAddEmployee(),
-		watchRemoveEmployee(),
-		watchUpdateEmployee(),
+		watchFetchEmployeesSaga(),
+		watchAddEmployeeSaga(),
+		watchRemoveEmployeeSaga(),
+		watchUpdateEmployeeSaga(),
 	]);
 }

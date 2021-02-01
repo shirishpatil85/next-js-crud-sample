@@ -1,4 +1,4 @@
-import Employee from "@/models/Employee";
+import Employee from "@/models/EmployeeModel";
 import "@/utils/dbConnect";
 
 export default async (req, res) => {

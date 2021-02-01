@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import {fetchEmployees} from "@/store";
+import {fetchEmployeesAction} from "@/store";
 import { useEffect, useState } from "react";
 
 export function SearchPage() {
@@ -11,7 +11,7 @@ export function SearchPage() {
 
 	useEffect(() => {
 		console.log(" use effect called");
-		dispatch(fetchEmployees());
+		dispatch(fetchEmployeesAction());
 		var temp =[];
 		console.log(" searchterm", searchTerm);
 		console.log(" state.employeeList", state.employeeList);

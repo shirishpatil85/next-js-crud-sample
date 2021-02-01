@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { PencilSVG, TrashSVG } from "@/icons";
 import {
-	deleteEmployee,
-	fetchEmployees,
-	setModalOpen,
-	setSelectedEmployee,
+	deleteEmployeeAction,
+	fetchEmployeesAction,
+	setModalOpenAction,
+	setSelectedEmployeeAction,
 } from "@/store";
 import { useEffect } from "react";
 
@@ -14,7 +14,7 @@ export function Table() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(fetchEmployees());
+		dispatch(fetchEmployeesAction());
 	}, [dispatch]);
 
 	return (
@@ -40,8 +40,8 @@ export function Table() {
 							<button
 								className="btn btn__compact btn__edit"
 								onClick={() => {
-									dispatch(setSelectedEmployee(_id));
-									dispatch(setModalOpen(true));
+									dispatch(setSelectedEmployeeAction(_id));
+									dispatch(setModalOpenAction(true));
 								}}
 							>
 								<PencilSVG />
@@ -49,7 +49,7 @@ export function Table() {
 							<button
 								className="btn btn__compact btn__delete"
 								onClick={() => {
-									dispatch(deleteEmployee(_id));
+									dispatch(deleteEmployeeAction(_id));
 								}}
 							>
 								<TrashSVG />

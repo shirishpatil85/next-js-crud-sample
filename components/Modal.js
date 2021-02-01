@@ -7,10 +7,10 @@ import cx from "clsx";
 
 import { CheckSVG, CloseSVG } from "@/icons";
 import {
-	addEmployee,
-	setModalOpen,
-	setSelectedEmployee,
-	updateEmployee,
+	addEmployeeAction,
+	setModalOpenAction,
+	setSelectedEmployeeAction,
+	updateEmployeeAction,
 } from "@/store";
 
 export function Modal() {
@@ -22,8 +22,8 @@ export function Modal() {
 
 	const closeModal = () => {
 		reset();
-		dispatch(setModalOpen(false));
-		dispatch(setSelectedEmployee(undefined));
+		dispatch(setModalOpenAction(false));
+		dispatch(setSelectedEmployeeAction(undefined));
 	};
 
 	const onSubmitHandler = (data) => {
@@ -32,13 +32,13 @@ export function Modal() {
 		}
 		if (state.selectedEmployee) {
 			dispatch(
-				updateEmployee({
+				updateEmployeeAction({
 					_id: state.selectedEmployee._id,
 					...data,
 				})
 			);
 		} else {
-			dispatch(addEmployee(data));
+			dispatch(addEmployeeAction(data));
 		}
 	};
 
